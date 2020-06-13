@@ -72,12 +72,12 @@
 // Probe Settings
 
 
-//#define BL_TOUCH                 // Enable BLTouch Settings
+#define BL_TOUCH                 // Enable BLTouch Settings
 #if ENABLED(BL_TOUCH)
   //#define LOW_RES                  // 3x3 Grid 
-  //#define HI_RES                   // 5x5 Grid
+  #define HI_RES                   // 5x5 Grid
   //#define MAX_RES                  // 7x7 Grid
-  //#define BL_TOUCH_HIGH_SPEED      // Only for BLTouch 3.0 and 3.1 Probe Pin does not pull in when moving in XY. Use at your own risk!
+  #define BL_TOUCH_HIGH_SPEED      // Only for BLTouch 3.0 and 3.1 Probe Pin does not pull in when moving in XY. Use at your own risk!
 #endif
   
 
@@ -104,10 +104,10 @@
 
 // Hotend Fan Auto ON
 // Use Hotend 2 pins to control Hotend fan
-//#define HOTEND_AUTO_FAN
+#define HOTEND_AUTO_FAN
 
 // Optical Endstops
-//#define OPTICAL_ENDSTOPS_XY
+#define OPTICAL_ENDSTOPS_XY
 //#define OPTICAL_ENDSTOP_Z
 
 // Custom Stepper Motor Drivers
@@ -120,12 +120,12 @@
 //          TMC2208, TMC2208_STANDALONE, TMC2209, TMC2209_STANDALONE,
 //          TMC26X,  TMC26X_STANDALONE,  TMC2660, TMC2660_STANDALONE,
 //          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
-//#define Custom_Stepper_Drivers
+#define Custom_Stepper_Drivers
 #if ENABLED(Custom_Stepper_Drivers)
-  #define DRIVER_X TMC2209_STANDALONE
-  #define DRIVER_Y TMC2209_STANDALONE
-  #define DRIVER_Z TMC2209_STANDALONE
-  #define DRIVER_E0 TMC2209_STANDALONE
+  #define DRIVER_X TMC2208
+  #define DRIVER_Y TMC2208
+  #define DRIVER_Z TMC2208
+  #define DRIVER_E0 TMC2208
   //#define DRIVER_E1 TMC2209_STANDALONE
   //#define DRIVER_Z2 TMC2209_STANDALONE
 
@@ -134,7 +134,7 @@
   #define INVERT_Z 
   #define INVERT_E0 
   //#define INVERT_Z2
-  //#define INVERT_E1
+  #define INVERT_E1
 #endif
 
 // Custom Axis Steps Per MM
@@ -143,7 +143,7 @@
 //#define STEPS_X         0  // Normally no change needed...
 //#define STEPS_Y         0  // Normally no change needed...
 //#define STEPS_Z         0  // Normally no change needed...
-//#define STEPS_E0        0
+#define STEPS_E0        436.5
 
 
 //===========================================================================
@@ -160,7 +160,7 @@
  *
  * :{ 'en':'English', 'an':'Aragonese', 'bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish', 'de':'German', 'el':'Greek', 'el_gr':'Greek (Greece)', 'es':'Spanish', 'eu':'Basque-Euskera', 'fi':'Finnish', 'fr':'French', 'gl':'Galician', 'hr':'Croatian', 'hu':'Hungarian', 'it':'Italian', 'jp_kana':'Japanese', 'ko_KR':'Korean (South Korea)', 'nl':'Dutch', 'pl':'Polish', 'pt':'Portuguese', 'pt_br':'Portuguese (Brazilian)', 'ru':'Russian', 'sk':'Slovak', 'tr':'Turkish', 'uk':'Ukrainian', 'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', 'zh_TW':'Chinese (Traditional)', 'test':'TEST' }
  */
-#define LCD_LANGUAGE en
+#define LCD_LANGUAGE de
 
 //===========================================================================
 //============================= Display Color Section========================

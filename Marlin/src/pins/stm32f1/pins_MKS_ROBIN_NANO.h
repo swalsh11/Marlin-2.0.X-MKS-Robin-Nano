@@ -80,7 +80,7 @@
   // Set Hardware Serial UART only für TCM 2209
   //#define HARDWARE_SERIAL
   // Set Software Serial UART for TMC 2208 / TMC 2209
-  //#define SOFTWARE_SERIAL
+  #define SOFTWARE_SERIAL
 
   #if ENABLED(HARDWARE_SERIAL)
     //#define X_HARDWARE_SERIAL  Serial1
