@@ -60,7 +60,7 @@
 
 // Core XY
 //#define SAPPHIRE_PRO
-//#define SAPPHIRE_PLUS
+#define SAPPHIRE_PLUS
 
 // Cartesian
 //#define BLUER
@@ -72,7 +72,7 @@
 // Probe Settings
 
 
-//#define BL_TOUCH                 // Enable BLTouch Settings
+#define BL_TOUCH                 // Enable BLTouch Settings
 #if ENABLED(BL_TOUCH)
   //#define LOW_RES                  // 3x3 Grid 
   //#define HI_RES                   // 5x5 Grid
@@ -97,7 +97,7 @@
 // Linear Pressure Control
 //Use at your own risk! It can cause extruder errors...
  
-//#define LINEAR_PRESSURE_CONTROL
+#define LINEAR_PRESSURE_CONTROL
 #if ENABLED(LINEAR_PRESSURE_CONTROL)
   #define LINEAR_PRESSURE_CONTROL_VALUE   0
 #endif
@@ -926,11 +926,11 @@
     //#define E1_DRIVER_TYPE A4988
   #elif ENABLED(SAPPHIRE_PLUS) && NONE(Custom_Stepper_Drivers)
     //Sapphire Plus
-    #define X_DRIVER_TYPE  TMC2208_STANDALONE
-    #define Y_DRIVER_TYPE  TMC2208_STANDALONE
-    #define Z_DRIVER_TYPE  A4988
+    #define X_DRIVER_TYPE  TMC2209
+    #define Y_DRIVER_TYPE  TMC2209
+    #define Z_DRIVER_TYPE  TMC2208 //_STANDALONE //upgrade this one?
     //#define Z2_DRIVER_TYPE A4988
-    #define E0_DRIVER_TYPE TMC2208_STANDALONE
+    #define E0_DRIVER_TYPE TMC2209 // _STANDALONE
     //#define E1_DRIVER_TYPE A4988
 
   #elif ENABLED(BLUER) && NONE(Custom_Stepper_Drivers)

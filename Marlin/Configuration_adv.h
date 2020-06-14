@@ -631,9 +631,9 @@
  * the position of the toolhead relative to the workspace.
  */
 
-//#define SENSORLESS_BACKOFF_MM  { 2, 2 }     // (mm) Backoff from endstops before sensorless homing
+#define SENSORLESS_BACKOFF_MM  { 2, 2 }     // (mm) Backoff from endstops before sensorless homing
 
-#define HOMING_BUMP_MM      { 5, 5, 4 }       // (mm) Backoff from endstops after first bump
+#define HOMING_BUMP_MM      { 5, 5, 2 }       // (mm) Backoff from endstops after first bump
 #define HOMING_BUMP_DIVISOR { 15, 15, 8 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
 #if ENABLED(BLTOUCH)
@@ -643,7 +643,7 @@
 #endif
 
 //#define QUICK_HOME                          // If G28 contains XY do a diagonal move first
-//#define HOME_Y_BEFORE_X                     // If G28 contains XY home Y before X
+#define HOME_Y_BEFORE_X                     // If G28 contains XY home Y before X
 //#define CODEPENDENT_XY_HOMING               // If X/Y can't home without homing Y/X first
 
 // @section bltouch
@@ -1187,7 +1187,7 @@
   //#define LONG_FILENAME_HOST_SUPPORT
 
   // Enable this option to scroll long filenames in the SD card menu
-  //#define SCROLL_LONG_FILENAMES
+  #define SCROLL_LONG_FILENAMES
 
   // Leave the heaters on after Stop Print (not recommended!)
   //#define SD_ABORT_NO_COOLDOWN
@@ -1541,7 +1541,7 @@
   //#define BABYSTEP_WITHOUT_HOMING
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR_Z  1       // Babysteps are very small. Increase for faster motion.
+  #define BABYSTEP_MULTIPLICATOR_Z  10       // Babysteps are very small. Increase for faster motion.
   #define BABYSTEP_MULTIPLICATOR_XY 1
 
   //#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
@@ -1871,7 +1871,7 @@
 // For debug-echo: 128 bytes for the optimal speed.
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
-#define TX_BUFFER_SIZE 0
+#define TX_BUFFER_SIZE 128
 
 // Host Receive Buffer Size
 // Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough.
@@ -2385,22 +2385,41 @@
    * Set *_SERIAL_TX_PIN and *_SERIAL_RX_PIN to match for all drivers
    * on the same serial port, either here or in your board's pins file.
    */
- // #define  X_SLAVE_ADDRESS 0
- // #define  Y_SLAVE_ADDRESS 0
- // #define  Z_SLAVE_ADDRESS 0
- // #define X2_SLAVE_ADDRESS 0
- // #define Y2_SLAVE_ADDRESS 0
- // #define Z2_SLAVE_ADDRESS 0
- // #define Z3_SLAVE_ADDRESS 0
- // #define Z4_SLAVE_ADDRESS 0
- // #define E0_SLAVE_ADDRESS 0
- // #define E1_SLAVE_ADDRESS 0
- // #define E2_SLAVE_ADDRESS 0
- // #define E3_SLAVE_ADDRESS 0
- // #define E4_SLAVE_ADDRESS 0
- // #define E5_SLAVE_ADDRESS 0
- // #define E6_SLAVE_ADDRESS 0
- // #define E7_SLAVE_ADDRESS 0
+  #define X_SERIAL_TX_PIN PA9 // wifi PA9
+  #define X_SERIAL_RX_PIN PA9 // wifi PA9
+
+  #define Y_SERIAL_TX_PIN PA9 // wifi PA9
+  #define Y_SERIAL_RX_PIN PA9 // wifi PA9
+
+  #define Z_SERIAL_TX_PIN PA9 // wifi PA9
+  #define Z_SERIAL_RX_PIN PA9 // wifi PA9
+
+  #define E0_SERIAL_TX_PIN PA5 // wifi PA5
+  #define E0_SERIAL_RX_PIN PA5 // wifi PA5
+
+  #define E1_SERIAL_TX_PIN PA9 // wifi PA9
+  #define E1_SERIAL_RX_PIN PA9 // wifi PA9
+
+  // | = add jumper
+  // : = remove jumper
+  // M1 is always closest to 12/24v
+  //              <- board power M1 M2 M3 -> endstops
+  #define  X_SLAVE_ADDRESS 3  // |  |  :
+  #define  Y_SLAVE_ADDRESS 2  // :  |  :
+  #define  Z_SLAVE_ADDRESS 1  // |  :  :
+  #define X2_SLAVE_ADDRESS 0
+  #define Y2_SLAVE_ADDRESS 0
+  #define Z2_SLAVE_ADDRESS 0  // :  :  :
+  #define Z3_SLAVE_ADDRESS 0
+  #define Z4_SLAVE_ADDRESS 0
+  #define E0_SLAVE_ADDRESS 0  // :  :  :
+  #define E1_SLAVE_ADDRESS 0
+  #define E2_SLAVE_ADDRESS 0
+  #define E3_SLAVE_ADDRESS 0
+  #define E4_SLAVE_ADDRESS 0
+  #define E5_SLAVE_ADDRESS 0
+  #define E6_SLAVE_ADDRESS 0
+  #define E7_SLAVE_ADDRESS 0
 
   /**
    * Software enable
