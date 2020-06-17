@@ -79,8 +79,21 @@
 
   // Set Hardware Serial UART only für TCM 2209
   //#define HARDWARE_SERIAL
+    //https://www.reddit.com/r/3Dprinting/comments/gthxb6/mks_robin_nano_v12_diagram_for_5x_tmc2209_v30/
+    //https://www.youtube.com/watch?v=dtXiUXb5DvQ
+    //PDN Cable, 1k Resistor required on TX,  Connect to PDN on Stepper
+    //wire Diag to min endstop, 
+    
+
   // Set Software Serial UART for TMC 2208 / TMC 2209
-  //#define SOFTWARE_SERIAL
+  #define SOFTWARE_SERIAL
+  //only for TMC2209
+  // use https://github.com/FYSETC/SoftwareSerialM  
+  // https://www.gitmemory.com/issue/MarlinFirmware/Marlin/15873/552647130
+  // Bind cables, no resistor, connect to PDN 
+  //wire Diag to min endstop,
+
+
 
   #if ENABLED(HARDWARE_SERIAL)
     //#define X_HARDWARE_SERIAL  Serial1

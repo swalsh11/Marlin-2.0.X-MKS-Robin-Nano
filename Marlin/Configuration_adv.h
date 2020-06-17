@@ -633,7 +633,7 @@
 
 #define SENSORLESS_BACKOFF_MM  { 2, 2 }     // (mm) Backoff from endstops before sensorless homing
 
-#define HOMING_BUMP_MM      { 5, 5, 2 }       // (mm) Backoff from endstops after first bump
+#define HOMING_BUMP_MM      { 0, 0, 2 }       // (mm) Backoff from endstops after first bump
 #define HOMING_BUMP_DIVISOR { 15, 15, 8 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
 #if ENABLED(BLTOUCH)
@@ -2384,42 +2384,24 @@
    *
    * Set *_SERIAL_TX_PIN and *_SERIAL_RX_PIN to match for all drivers
    * on the same serial port, either here or in your board's pins file.
+   * on the same serial port, either here or in your board's pins file.
    */
-  #define X_SERIAL_TX_PIN PA9 // wifi PA9
-  #define X_SERIAL_RX_PIN PA9 // wifi PA9
-
-  #define Y_SERIAL_TX_PIN PA9 // wifi PA9
-  #define Y_SERIAL_RX_PIN PA9 // wifi PA9
-
-  #define Z_SERIAL_TX_PIN PA9 // wifi PA9
-  #define Z_SERIAL_RX_PIN PA9 // wifi PA9
-
-  #define E0_SERIAL_TX_PIN PA5 // wifi PA5
-  #define E0_SERIAL_RX_PIN PA5 // wifi PA5
-
-  #define E1_SERIAL_TX_PIN PA9 // wifi PA9
-  #define E1_SERIAL_RX_PIN PA9 // wifi PA9
-
-  // | = add jumper
-  // : = remove jumper
-  // M1 is always closest to 12/24v
-  //              <- board power M1 M2 M3 -> endstops
-  #define  X_SLAVE_ADDRESS 3  // |  |  :
-  #define  Y_SLAVE_ADDRESS 2  // :  |  :
-  #define  Z_SLAVE_ADDRESS 1  // |  :  :
-  #define X2_SLAVE_ADDRESS 0
-  #define Y2_SLAVE_ADDRESS 0
-  #define Z2_SLAVE_ADDRESS 0  // :  :  :
-  #define Z3_SLAVE_ADDRESS 0
-  #define Z4_SLAVE_ADDRESS 0
-  #define E0_SLAVE_ADDRESS 0  // :  :  :
-  #define E1_SLAVE_ADDRESS 0
-  #define E2_SLAVE_ADDRESS 0
-  #define E3_SLAVE_ADDRESS 0
-  #define E4_SLAVE_ADDRESS 0
-  #define E5_SLAVE_ADDRESS 0
-  #define E6_SLAVE_ADDRESS 0
-  #define E7_SLAVE_ADDRESS 0
+ // #define  X_SLAVE_ADDRESS 0
+ // #define  Y_SLAVE_ADDRESS 0
+ // #define  Z_SLAVE_ADDRESS 0
+ // #define X2_SLAVE_ADDRESS 0
+ // #define Y2_SLAVE_ADDRESS 0
+ // #define Z2_SLAVE_ADDRESS 0
+ // #define Z3_SLAVE_ADDRESS 0
+ // #define Z4_SLAVE_ADDRESS 0
+ // #define E0_SLAVE_ADDRESS 0
+ // #define E1_SLAVE_ADDRESS 0
+ // #define E2_SLAVE_ADDRESS 0
+ // #define E3_SLAVE_ADDRESS 0
+ // #define E4_SLAVE_ADDRESS 0
+ // #define E5_SLAVE_ADDRESS 0
+ // #define E6_SLAVE_ADDRESS 0
+ // #define E7_SLAVE_ADDRESS 0
 
   /**
    * Software enable
@@ -2522,13 +2504,13 @@
    * IMPROVE_HOMING_RELIABILITY tunes acceleration and jerk when
    * homing and adds a guard period for endstop triggering.
    */
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
+  #define SENSORLESS_HOMING // StallGuard capable drivers only
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  8
+    #define X_STALL_SENSITIVITY  55
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  8
+    #define Y_STALL_SENSITIVITY  55
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  8
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY

@@ -120,12 +120,12 @@
 //          TMC2208, TMC2208_STANDALONE, TMC2209, TMC2209_STANDALONE,
 //          TMC26X,  TMC26X_STANDALONE,  TMC2660, TMC2660_STANDALONE,
 //          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
-//#define Custom_Stepper_Drivers
+//#define Custom_Stepper_Drivers 
 #if ENABLED(Custom_Stepper_Drivers)
-  #define DRIVER_X TMC2209_STANDALONE
-  #define DRIVER_Y TMC2209_STANDALONE
-  #define DRIVER_Z TMC2209_STANDALONE
-  #define DRIVER_E0 TMC2209_STANDALONE
+  #define DRIVER_X TMC2208
+  #define DRIVER_Y TMC2208
+  #define DRIVER_Z TMC2208_STANDALONE
+  #define DRIVER_E0 TMC2208_STANDALONE
   //#define DRIVER_E1 TMC2209_STANDALONE
   //#define DRIVER_Z2 TMC2209_STANDALONE
 
@@ -874,10 +874,10 @@
     #define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
   #else 
     //Sapphire Pro,Plus & Bluer & Mechanical Endstops
-    #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-    #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+    #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+    #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
     #define X_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-    #define Y_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+    #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
     #define Z_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
     #define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
   #endif
@@ -927,7 +927,7 @@
   #elif ENABLED(SAPPHIRE_PLUS) && NONE(Custom_Stepper_Drivers)
     //Sapphire Plus
     #define X_DRIVER_TYPE  TMC2209
-    #define Y_DRIVER_TYPE  TMC2209
+    #define Y_DRIVER_TYPE  TMC2209 //
     #define Z_DRIVER_TYPE  TMC2208 //_STANDALONE //upgrade this one?
     //#define Z2_DRIVER_TYPE A4988
     #define E0_DRIVER_TYPE TMC2209 // _STANDALONE
